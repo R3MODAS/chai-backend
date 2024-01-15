@@ -1,0 +1,20 @@
+{
+  "name": "chai-backend",
+  "version": "1.0.0",
+  "description": "backend course by hitesh sir",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Remo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
