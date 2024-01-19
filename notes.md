@@ -45,4 +45,15 @@ Schema -> structure of the data inside the collection
 
 User (collection) contains username,password and the type of username and password is string (schema)
 
-Practice Link => https://stackblitz.com/edit/data-modelling-hitesh-sir?file=models%2Ftodos%2Fuser.models.js
+Practice Link => https://stackblitz.com/edit/data-modelling-hitesh-sir?file=models%2Ftodos%2Fsub_todo.models.js
+
+How to connect database in MERN with debugging
+==============================================
+We will use MongoDB Atlas
+
+MongoDB Atlas
+-------------
+It is a subservice of mongodb which gives an online DB
+
+- First we need to create a project and do the steps
+- Then we need to create a cluster (Mongodb goes to the aws server and creates a Db for us to work on)
