@@ -47,6 +47,14 @@ User (collection) contains username,password and the type of username and passwo
 
 Practice Link => https://stackblitz.com/edit/data-modelling-hitesh-sir?file=models%2Ftodos%2Fsub_todo.models.js
 
+Important => Always plan the structure of the data and all before even starting to connect database and all
+
+Data models for practice
+------------------------
+1. TodoApp (done)
+2. Ecommerce (done)
+3. Hospital Management
+
 How to connect database in MERN with debugging
 ==============================================
 We will use MongoDB Atlas
