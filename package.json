@@ -2,9 +2,10 @@
   "name": "chai-backend",
   "version": "1.0.0",
   "description": "backend course by hitesh sir",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "nodejs",
@@ -16,5 +17,9 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4"
   }
 }
