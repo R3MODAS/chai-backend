@@ -1,5 +1,4 @@
-Backend Development
-====================
+# Backend Development
 -> 2 major components
 
 - A Programming language
@@ -10,7 +9,7 @@ Java, JS, PHP, golang, C++
 Mongo, MySQL, Postgres, sqlite
 -> ORM ODM
 
--> Database is on another continent always
+-> Database is always on another continent 
 
 -> A Javascript based Backend
 Data, File, Third Party (API)
@@ -36,8 +35,7 @@ Folder Structure
 - Utils -> Common things we can use everywhere
 - More (depends)
 
-Data modelling for backend with mongoose
-----------------------------------------
+## Data modelling for backend with mongoose
 Data modelling -> Defining the structure of the data
 
 Models -> collection that contains data in the Database
@@ -49,25 +47,27 @@ User (collection) contains username,password and the type of username and passwo
 
 Important => Always plan the structure of the data and all before even starting to connect database and all
 
-Data models for practice
-------------------------
+## Data models for practice
 - TodoApp (done)
 - Ecommerce (done)
 - Hospital Management (done)
 
-Setting up Professional Backend Project
------------------------------------------
+## Setting up Professional Backend Project
 [Youtube Model Link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
 
 [Youtube Design Link](https://www.figma.com/file/shmxWL5FKRO5GNOPPopBg6/PLAY?type=design&mode=design&t=ndeoSp2w6ZrnCro2-0)
 
-How to connect database in MERN with debugging
------------------------------------------------
+## How to connect database in MERN with debugging
 We will use MongoDB Atlas
 
-MongoDB Atlas
--------------
+## MongoDB Atlas
 It is a subservice of mongodb which gives an online DB
 
 - First we need to create a project and do the steps
 - Then we need to create a cluster (Mongodb goes to the aws server and creates a Db for us to work on)
+
+## Mongoose
+Whenever we will use Database there will be 2 problem
+
+- When we will try to talk to db always wrap the db logic inside try/catch, promises.
+- Db is always in some other continent so use async/await or then,catch
