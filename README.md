@@ -71,3 +71,12 @@ Whenever we will use Database there will be 2 problem
 
 - When we will try to talk to db always wrap the db logic inside try/catch, promises.
 - Db is always in some other continent so use async/await or then,catch
+
+## Connection with Database
+Two approach can be used to write code
+
+- All code inside index.js (Not a good practice)
+- Inside each folder(db,middlewares) write individual code of its own and export them and import them on index.js (Preferred)
+
+While we connect to the Database using MongoDB URI and DB name, we will get an connectionInstance where we will be able to get a lot of values but for now we will require hostName
+
