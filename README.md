@@ -70,7 +70,7 @@ It is a subservice of mongodb which gives an online DB
 Whenever we will use Database there will be 2 problem
 
 - When we will try to talk to db always wrap the db logic inside try/catch, promises.
-- Db is always in some other continent so use async/await or then,catch
+- Db is always in some other continent so use async/await or then,catch while connecting to the db
 
 ## Connection with Database
 Two approach can be used to write code
@@ -80,3 +80,12 @@ Two approach can be used to write code
 
 While we connect to the Database using MongoDB URI and DB name, we will get an connectionInstance where we will be able to get a lot of values but for now we will require hostName
 
+## Configuration for Backend
+- app.use() is used for middlewares / configuration
+- app.use(cors()) to use the cors middleware 
+- app.use(express.urlencoded()) to get data from url
+- app.use(express.static("public")) to store document(video,pdf,images) in the public directory
+- app.use(cookieParser()) to get/send cookies
+
+## Middleware
+A function that acts as a checker (middleman) who does some prechecks then lets you execute the main function to send response back to the user/client
