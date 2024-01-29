@@ -34,6 +34,8 @@ dotenv.config({
     path : "./env"
 })
 
+const PORT = process.env.PORT || 8000
+
 connectDB()
 .then(() => {
     app.on("error", (err) => {
@@ -41,8 +43,8 @@ connectDB()
         throw err
     })
 
-    app.listen(process.env.PORT || 8000, () => {
-        console.log(`Server started at http://localhost:${process.env.PORT}`)
+    app.listen(PORT, () => {
+        console.log(`Server started at http://localhost:${PORT}`)
     })
 })
 .catch((err) => {

@@ -89,3 +89,11 @@ While we connect to the Database using MongoDB URI and DB name, we will get an c
 
 ## Middleware
 A function that acts as a checker (middleman) who does some prechecks then lets you execute the main function to send response back to the user/client
+
+## Utility asyncHandler function
+It is basically a higher order function that takes a function as parameter and then returns a async function which takes paramater(req,res,next) and uses try catch - try for awaiting the passed function with parameter(req,res,next) and catch the errors with some status and json
+
+## Utility Error and Response Class
+- Creating a class which will inherit the Error(class) and we can send the custom response in the constructor function of the class
+
+- For Response we can just create a class which will just take statusCode, data, message in the constructor function and act accordingly while using it

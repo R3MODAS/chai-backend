@@ -25,7 +25,7 @@ app.use(express.urlencoded({
 // config to store some document in our public folder (videos,pdf,files)
 app.use(express.static("public"))
 
-// config to get/send cookies
+// config to do crud operations on cookies
 app.use(cookieParser())
 
 export { app }
