@@ -17,6 +17,7 @@ Data, File, Third Party (API)
 -> A JS Runtime : Nodejs / Deno / Bun
 Package.json, .env, (Readme, git, lint, prettier,etc)
 
+-> public (folder which contains all the temp files)
 -> src (folder which contains all the code)
 
 File Structure
