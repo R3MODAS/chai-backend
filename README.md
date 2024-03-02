@@ -15,8 +15,8 @@ Mongo, MySQL, Postgres, sqlite
 Data, File, Third Party (API)
 
 -> A JS Runtime : Nodejs / Deno / Bun
-Package.json, .env, (Readme, git, lint, prettier,etc)
 
+-> Package.json, (Readme, git, lint, prettier,etc), .env (to keep secret files)
 -> public (folder which contains all the temp files)
 -> src (folder which contains all the code)
 
@@ -39,14 +39,15 @@ Folder Structure
 ## Data modelling for backend with mongoose
 Data modelling -> Defining the structure of the data
 
-Models -> collection that contains data in the Database
-Schema -> structure of the data inside the collection
+Mongoose is a popular ODM (Object Data Modelling) library for Nodejs and MongoDB.
 
-User (collection) contains username,password and the type of username and password is string (schema)
+Models are basically collection (in terms of MongoDB) which contains one/more documents. Eg: "User" (Model) we create in our code is just "users" (Collection) in our DB and inside the Collection, we can have data such as username, email,age (Document), Now that document has to have a structure (Schema).
 
-[Data Model Practice Link](https://stackblitz.com/edit/data-modelling-hitesh-sir?file=models%2Ftodos%2Fsub_todo.models.js)
+- Model is a constructor function representing a MongoDB collection.
+- Collection is a group of MongoDB documents stored in the database.
+- Schema defines the structure and constraints for documents within a collection.
+- Document is an instance of a model, representing a single record in the collection.
 
-Important => Always plan the structure of the data and all before even starting to connect database and all
 
 ## Data models for practice
 - TodoApp (done)
