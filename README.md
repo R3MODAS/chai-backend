@@ -1,4 +1,4 @@
-# Backend Development
+## Backend Development
 -> 2 major components
 
 - A Programming language
@@ -9,7 +9,9 @@ Java, JS, PHP, golang, C++
 Mongo, MySQL, Postgres, sqlite
 -> ORM ODM
 
--> Database is always on another continent 
+-> Database is always on another continent
+
+-> API is nothing but response that the function sends from the backend to the client
 
 -> A Javascript based Backend
 Data, File, Third Party (API)
@@ -36,8 +38,12 @@ Folder Structure
 - Utils -> Common things we can use everywhere
 - More (depends)
 
+## Deploying Code in Production
+- Server listens to a PORT number and also to diff routes and provides diff response to the client.
+- PORT is a number (House no of an address) to run diff services on backend server as one PORT can be used to send Api data another can be used to send Auth data
+
 ## Data modelling for backend with mongoose
-Data modelling -> Defining the structure of the data
+Data modelling -> Defining the structure of the data (fields required for the data)
 
 Mongoose is a popular ODM (Object Data Modelling) library for Nodejs and MongoDB.
 
