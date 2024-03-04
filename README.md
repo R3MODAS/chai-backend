@@ -54,7 +54,6 @@ Models are basically collection (in terms of MongoDB) which contains one/more do
 - Schema defines the structure and constraints for documents within a collection.
 - Document is an instance of a model, representing a single record in the collection.
 
-
 ## Data models for practice
 - TodoApp (done)
 - Ecommerce (done)
