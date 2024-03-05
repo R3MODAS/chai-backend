@@ -54,9 +54,6 @@ Mongoose is an ODM (Object Data modelling) tool for Nodejs and MongoDB that defi
 - Inside the mongoose.Schema it takes two object one for the Schema and another for the timestamps which is basically (createdAt and updatedAt) which helps to know when the data is created and updated.
 - ObjectId is a special type which is used for unique identifiers and ref is used to specify the reference
 
-## How to connect database in MERN with debugging
-We will use MongoDB Atlas
-
 ## MongoDB Atlas
 It is a subservice of mongodb which gives an online DB
 
