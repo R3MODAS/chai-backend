@@ -1,31 +1,16 @@
 ## Backend Development
-
 [Youtube Model Link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
 
 [Youtube Design Link](https://www.figma.com/file/shmxWL5FKRO5GNOPPopBg6/PLAY?type=design&mode=design&t=ndeoSp2w6ZrnCro2-0)
 
--> 2 major components
-
-- A Programming language
-Java, JS, PHP, golang, C++ 
--> on a framework
-
-- A Database
-Mongo, MySQL, Postgres, sqlite
--> ORM ODM
-
--> Database is always on another continent
-
--> API is nothing but response that the function sends from the backend to the client
-
--> A Javascript based Backend
-Data, File, Third Party (API)
-
--> A JS Runtime : Nodejs / Deno / Bun
-
--> Package.json, (Readme, git, lint, prettier,etc), .env (to keep secret files)
--> public (folder which contains all the temp files)
--> src (folder which contains all the code)
+- A Programming language Eg: Java, JS, PHP, golang, C++ (on a Framework)
+- A Database (Database is always on another continent) Eg: Mongo, MySQL, Postgres, sqlite (ORM, ODM)
+- API is nothing but response that the function sends from the backend to the client
+- A Javascript based Backend : Data, File, Third Party (API)
+- A JS Runtime : Nodejs / Deno / Bun
+- Package.json, (Readme, git, lint, prettier,etc), .env (to keep secret files)
+- public (folder which contains all the temp files)
+- src (folder which contains all the code)
 
 File Structure
 ---------------
