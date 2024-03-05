@@ -1,4 +1,9 @@
 ## Backend Development
+
+[Youtube Model Link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
+
+[Youtube Design Link](https://www.figma.com/file/shmxWL5FKRO5GNOPPopBg6/PLAY?type=design&mode=design&t=ndeoSp2w6ZrnCro2-0)
+
 -> 2 major components
 
 - A Programming language
@@ -54,15 +59,15 @@ Models are basically collection (in terms of MongoDB) which contains one/more do
 - Schema defines the structure and constraints for documents within a collection.
 - Document is an instance of a model, representing a single record in the collection.
 
-## Data models for practice
-- TodoApp (done)
-- Ecommerce (done)
-- Hospital Management (done)
+## Intro to Mongoose
+Mongoose is an ODM (Object Data modelling) tool for Nodejs and MongoDB that defines the structure and type of data to be created inside the DB.
 
-## Setting up Professional Backend Project
-[Youtube Model Link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
-
-[Youtube Design Link](https://www.figma.com/file/shmxWL5FKRO5GNOPPopBg6/PLAY?type=design&mode=design&t=ndeoSp2w6ZrnCro2-0)
+- Firstly we create a Schema in mongoose.
+- Secondly we create a model and it takes name of the model and specify the Schema.
+- The model name (User) will be converted to (users) in MongoDB (collection in mongodb)
+- The data which we will store in our DB, we can do validation using mongoose to ensure we have the correct type of data inside our DB
+- Inside the mongoose.Schema it takes two object one for the Schema and another for the timestamps which is basically (createdAt and updatedAt) which helps to know when the data is created and updated.
+- ObjectId is a special type which is used for unique identifiers and ref is used to specify the reference
 
 ## How to connect database in MERN with debugging
 We will use MongoDB Atlas
