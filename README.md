@@ -56,6 +56,17 @@ Mongoose is an ODM (Object Data modelling) tool for Nodejs and MongoDB that defi
 
 ## How to connect DB in MERN
 When Talking with Database, there will always be problems
-- Make sure to wrap your db code inside try catch block or promises.
-- DB is always in another continent so always use async await to handle it.
+- Make sure to wrap your db code inside try catch block or promises
+- DB is always in another continent so always use async await to handle it
 - The DB is there out on internet which is already hosted and we are just connecting to it (MongoDB Atlas)
+
+## Introduction to Express
+In express mostly we handle request(data from user) and response(data we send to user).
+
+- req.params is mostly used to get the data from the url
+- req.body is used to get data from the client (form data, json)
+- req.cookies is also used to get data and we can store data from server to user browser and read that data
+- app.use() is used for configurations and setting up the middlewares for our app
+- app.use(cors()) is used to tell our express to allow cross origin resource sharing feature without the browser blocking different domain
+- app.use(express.json()) is used to tell our express that we can get the data in the form of json so make sure to parse it
+- app.use(express.urlencoded()) is used to tell our express that the url may come in some encoded form so make sure to understand that
