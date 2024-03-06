@@ -58,3 +58,4 @@ Mongoose is an ODM (Object Data modelling) tool for Nodejs and MongoDB that defi
 When Talking with Database, there will always be problems
 - Make sure to wrap your db code inside try catch block or promises.
 - DB is always in another continent so always use async await to handle it.
+- The DB is there out on internet which is already hosted and we are just connecting to it (MongoDB Atlas)
