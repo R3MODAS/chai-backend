@@ -99,3 +99,19 @@ It takes four parameters:
 
 ## User and video model with hooks and JWT
 MongoDB uses BSON format (Binary JSON) to store data (document) in the collection
+
+There is some challenge with password which we will have to encrypt for our db and decrypt when comparing or doing some operation
+
+We will require a package `mongoose-aggregate-paginate-v2` where we will be able to write advanced aggregation queries on mongoose by just doing `videoSchema.plugin(mongooseAggregatePaginate)` which will enable the use of aggregation queries along with regular queries.
+
+We will use `bcrypt` library to hash our password and `jsonwebtoken` (jwt) library to create tokens which basically uses some algorithm to hash our info
+
+`pre` hook or middleware functions are executed just before saving the data in our DB
+
+`userSchema.pre()` takes two things one is the action and here will require to encrypt our password just before saving the data so `save` will be used and for the second thing, we will use normal function as we have `this keyword` to access the reference to the current object and it will be an `async` function with parameter `next` to change to next handler function once the task is done
+
+Now there is a problem with `userSchema.pre()` as it will be executed everytime some data is saved regardless it is related to password or not so to fix this we are going to check if the password is modified or not `this.isModified("password")` will be used to check if the value is modified or not and if not then just return `next()` otherwise just `this.password = bycrypt.hash(this.password, 10) next()`
+
+We can create our custom methods in mongoose `To check the password is correct or not` so `userSchema.methods` will have our custom function `userSchema.methods.isPasswordCorrect = async function(password){}` and this function is async (might take time to do task) and takes password as parameter that we want to check.
+
+`async function(password){ return await bcrypt.compare(password, this.password) }` will return true/false as bcrypt compares the password we give and the encrypted password.
