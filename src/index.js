@@ -26,7 +26,7 @@ import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 dotenv.config({
-    path: "./env"
+    path: "./.env"
 })
 
 const PORT = process.env.PORT
@@ -35,6 +35,9 @@ connectDB()
 .then(() => {
     app.on("error", (err) => {
         console.log(err)
+    })
+    app.get("/", (req,res) => {
+        res.send(`<h1>Welcome to Chai aur Backend</h1>`)
     })
     app.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`))
 })
