@@ -80,7 +80,8 @@ To handle the error part effectively we can create a utility function for that t
 
 - Inheritance: ApiErrorHandler extends the built-in Error class, allowing it to inherit its behavior and properties.
 
-- Constructor: The constructor function initializes the properties of the ApiErrorHandler instance. It takes four parameters:
+- Constructor: The constructor function initializes the properties of the ApiErrorHandler instance. 
+It takes four parameters:
 `statusCode`: Represents the HTTP status code associated with the error.
 `message`: Represents the error message (default is "Something went wrong").
 `errors`: An array that can hold additional error details.
@@ -95,3 +96,6 @@ To handle the error part effectively we can create a utility function for that t
 - Stack Trace Handling: It checks if a stack trace is provided. If provided, it uses it; otherwise, it captures the stack trace using `Error.captureStackTrace`.
 
 - The `constructor` is used to set up the initial state of your `ApiErrorHandler` instances, and `super()` is used to invoke the constructor of the parent class `Error`, ensuring that the base error functionality is properly initialized.
+
+## User and video model with hooks and JWT
+MongoDB uses BSON format (Binary JSON) to store data (document) in the collection
