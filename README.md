@@ -104,6 +104,7 @@ There is some challenge with password which we will have to encrypt for our db a
 
 We will require a package `mongoose-aggregate-paginate-v2` where we will be able to write advanced aggregation queries on mongoose by just doing `videoSchema.plugin(mongooseAggregatePaginate)` which will enable the use of aggregation queries along with regular queries.
 
+## bcrypt
 We will use `bcrypt` library to hash our password and `jsonwebtoken` (jwt) library to create tokens which basically uses some algorithm to hash our info
 
 `pre` hook or middleware functions are executed just before saving the data in our DB
@@ -112,6 +113,60 @@ We will use `bcrypt` library to hash our password and `jsonwebtoken` (jwt) libra
 
 Now there is a problem with `userSchema.pre()` as it will be executed everytime some data is saved regardless it is related to password or not so to fix this we are going to check if the password is modified or not `this.isModified("password")` will be used to check if the value is modified or not and if not then just return `next()` otherwise just `this.password = bycrypt.hash(this.password, 10) next()`
 
-We can create our custom methods in mongoose `To check the password is correct or not` so `userSchema.methods` will have our custom function `userSchema.methods.isPasswordCorrect = async function(password){}` and this function is async (might take time to do task) and takes password as parameter that we want to check.
+```
+userSchema.pre("save", async function(){
+    if(!this.isModified("password")) return next()
+    this.password = bcrypt.hash(this.password, 10)
+    next()
+})
+```
 
-`async function(password){ return await bcrypt.compare(password, this.password) }` will return true/false as bcrypt compares the password we give and the encrypted password.
+We can create our custom methods in mongoose `To check the password is correct or not` so `userSchema.methods` will have our custom function and this function is async (might take time to do task) and takes password as parameter that we want to check.
+
+```
+userSchema.methods.isPasswordCorrect = async function(password){
+    return await bcrypt.compare(password, this.password)
+}
+
+This will return true/false as bcrypt compares the password we give and the encrypted password stored in our db.
+```
+
+## JWT
+JWT is a bearer token that means someone who bears the token (owns a key) and we will require Access Token and Refresh Token. Refresh Token is stored in our backend but Access token is not.
+
+Now we need to generate our Access Token and Refresh Token and both of them can be generated the same way using `jwt.sign()` method. So we are gonna make a method in userSchema to generate them
+
+```
+userSchema.methods.generateAccessToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id
+            email: this.email,
+            username: this.username,
+            fullName: this.fullName
+        },
+        access_token_secret,
+        {
+            expiresIn: access_token_expiry
+        }
+    )    
+}
+```
+
+`jwt.sign()` takes 3 things `jwt.sign(payload,secret_key,expiresIn)`
+
+Same way we can this for Refresh Token
+
+```
+userSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id
+        },
+        refresh_token_secret,
+        {
+            expiresIn: refresh_token_expiry
+        }
+    )    
+}
+```
