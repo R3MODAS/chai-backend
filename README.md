@@ -54,6 +54,8 @@ Mongoose is an ODM (Object Data modelling) tool for Nodejs and MongoDB that defi
 - Inside the `mongoose.Schema` it takes two object one for the Schema and another for the timestamps which is basically `createdAt` and `updatedAt` which helps to know when the data is created and updated.
 - `ObjectId` is a special type which is used for unique identifiers and `ref` is used to specify the reference
 
+
+
 ## How to connect DB in MERN
 When Talking with Database, there will always be problems
 - Make sure to wrap your db code inside try catch block or promises
@@ -72,40 +74,36 @@ In express mostly we handle request(data from user) and response(data we send to
 - `app.use(express.static("public"))` is used to serve/send files from our public directory so that anyone can access them `https://domain.com/img.jpg` as `img.jpg` exists in our public directory
 - `app.use(cookieParser())` is used to get the cookies from the client side and do some actions accordingly as the data is available on `req.cookies` object.
 
+
+Async Handler
+-------------
 Now we will do async-await try-catch all the time handling asynchronous operations so to do that effectively we can create a wrapper function for that.
 
 - Async Handler is a function that takes a function as a parameter `fn` and returns a new function which is an async function that takes `req,res,next` as paramaters and inside the new function, `fn` is executed in `try` block and in `catch` block the error part is handled
 
+Error Handler
+-------------
 To handle the error part effectively we can create a utility function for that to handle the error same way for every route
 
-- Inheritance: ApiErrorHandler extends the built-in Error class, allowing it to inherit its behavior and properties.
+1. `class ApiErrorHandler extends Error`: This code declares a new class `ApiErrorHandler` that extends the built-in `Error` class in JavaScript. This means that `ApiErrorHandler` inherits properties and methods from the `Error` class.
 
-- Constructor: The constructor function initializes the properties of the ApiErrorHandler instance. 
-It takes four parameters:
-`statusCode`: Represents the HTTP status code associated with the error.
-`message`: Represents the error message (default is "Something went wrong").
-`errors`: An array that can hold additional error details.
-`stack`: The `stack` trace associated with the error.
+2. `constructor(statusCode, message = "Something went wrong", errors = [], stack = "")`: The constructor of the `ApiErrorHandler` class takes four parameters: `statusCode`, `message` (with a default value of "Something went wrong"), `errors` (an array with a default empty array), and `stack` (with a default value of an empty string).
 
-- Custom Properties:
-`statusCode`: Holds the HTTP status code for the error.
-`data`: A placeholder for additional data that can be associated with the error.
-`success`: Indicates whether the API call was successful or not.
-`errors`: An array to store error details.
+3. `super(message)`: This line calls the constructor of the parent class (`Error` in this case) with the provided `message` parameter. The `super` keyword is used to refer to the parent class and call its constructor.
 
-- Stack Trace Handling: It checks if a stack trace is provided. If provided, it uses it; otherwise, it captures the stack trace using `Error.captureStackTrace`.
+So, when an instance of `ApiErrorHandler` is created, it first calls the constructor of the `Error` class (the parent class) with the specified `message` parameter. After that, the constructor of the `ApiErrorHandler` class initializes some additional properties specific to this class, such as `statusCode`, `data`, `success`, and `errors`.
 
-- The `constructor` is used to set up the initial state of your `ApiErrorHandler` instances, and `super()` is used to invoke the constructor of the parent class `Error`, ensuring that the base error functionality is properly initialized.
+
 
 ## User and video model with hooks and JWT
 MongoDB uses BSON format (Binary JSON) to store data (document) in the collection
 
 There is some challenge with password which we will have to encrypt for our db and decrypt when comparing or doing some operation
 
-We will require a package `mongoose-aggregate-paginate-v2` where we will be able to write advanced aggregation queries on mongoose by just doing `videoSchema.plugin(mongooseAggregatePaginate)` which will enable the use of aggregation queries along with regular queries.
+We will require a package `mongoose-aggregate-paginate-v2` where we will be able to write advanced aggregation queries on mongoose by just doing `your_Schema.plugin(mongooseAggregatePaginate)` which will enable the use of aggregation queries along with regular queries.
 
 ## bcrypt
-We will use `bcrypt` library to hash our password and `jsonwebtoken` (jwt) library to create tokens which basically uses some algorithm to hash our info
+We will use `bcrypt` library to hash our password and `jsonwebtoken` (jwt) library to create tokens which basically uses some algorithm to hash our info and to help us for authentication purpose so that user doesn't have to login again and again.
 
 `pre` hook or middleware functions are executed just before saving the data in our DB
 

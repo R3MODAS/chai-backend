@@ -11,10 +11,6 @@ const videoSchema = new Schema(
             type: String, // cloudinary url,
             required: true
         },
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        },
         title: {
             type: String,
             required: [true, "Please enter video title"]
@@ -34,6 +30,10 @@ const videoSchema = new Schema(
         isPublished: {
             type: Boolean,
             default: true
+        },
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: "User"
         }
     },
     { timestamps: true }
