@@ -1,14 +1,17 @@
 import express from "express";
+import "dotenv/config";
+import { morganMiddleware } from "./middlewares/morgan.middleware.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(morganMiddleware);
 
 let teaData = [];
 let nextId = 1;
 
-// Create tea
+// Create and get tea
 app.post("/teas", (req, res) => {
   const { name, price } = req.body;
   const newTea = { id: nextId++, name, price };
